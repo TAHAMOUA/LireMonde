@@ -1,16 +1,7 @@
 {
   "books": [
     {
-      "id": 1,
-      "titre": "Harry Potter",
-      "auteur": "J.K. Rowling",
-      "genre": "Fantasy",
-      "description": "Harry Potter est un jeune sorcier qui découvre ses pouvoirs le jour de ses 11 ans.",
-      "couverture": "https://covers.openlibrary.org/b/id/10110415-L.jpg",
-      "aLire": false
-    },
-    {
-      "id": 2,
+      "id": "2",
       "titre": "The Hobbit",
       "auteur": "J.R.R. Tolkien",
       "genre": "Fantasy",
@@ -19,7 +10,7 @@
       "aLire": false
     },
     {
-      "id": 3,
+      "id": "3",
       "titre": "The Da Vinci Code",
       "auteur": "Dan Brown",
       "genre": "Mystery",
@@ -28,7 +19,7 @@
       "aLire": false
     },
     {
-      "id": 4,
+      "id": "4",
       "titre": "A Million to One",
       "auteur": "Tony Faggioli",
       "genre": "Drame",
@@ -37,7 +28,7 @@
       "aLire": false
     },
     {
-      "id": 5,
+      "id": "5",
       "titre": "Gone Girl",
       "auteur": "Gillian Flynn",
       "genre": "Mystery",
@@ -46,7 +37,7 @@
       "aLire": false
     },
     {
-      "id": 6,
+      "id": "6",
       "titre": "Dune",
       "auteur": "Frank Herbert",
       "genre": "Science-fiction",
@@ -54,5 +45,6 @@
       "couverture": "https://covers.openlibrary.org/b/id/12801025-L.jpg",
       "aLire": false
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
