@@ -1,0 +1,58 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "titre": "Harry Potter",
+      "auteur": "J.K. Rowling",
+      "genre": "Fantasy",
+      "description": "Harry Potter est un jeune sorcier qui découvre ses pouvoirs le jour de ses 11 ans.",
+      "couverture": "https://covers.openlibrary.org/b/id/10110415-L.jpg",
+      "aLire": false
+    },
+    {
+      "id": 2,
+      "titre": "The Hobbit",
+      "auteur": "J.R.R. Tolkien",
+      "genre": "Fantasy",
+      "description": "Bilbo Baggins est entraîné dans une aventure extraordinaire.",
+      "couverture": "https://covers.openlibrary.org/b/id/8406786-L.jpg",
+      "aLire": false
+    },
+    {
+      "id": 3,
+      "titre": "The Da Vinci Code",
+      "auteur": "Dan Brown",
+      "genre": "Mystery",
+      "description": "Robert Langdon enquête sur un meurtre au Louvre.",
+      "couverture": "https://covers.openlibrary.org/b/id/8739161-L.jpg",
+      "aLire": false
+    },
+    {
+      "id": 4,
+      "titre": "A Million to One",
+      "auteur": "Tony Faggioli",
+      "genre": "Drame",
+      "description": "Une histoire sur le destin et les conséquences de nos actions.",
+      "couverture": "https://covers.openlibrary.org/b/id/12547318-L.jpg",
+      "aLire": false
+    },
+    {
+      "id": 5,
+      "titre": "Gone Girl",
+      "auteur": "Gillian Flynn",
+      "genre": "Mystery",
+      "description": "Le matin de leur anniversaire, Amy Dunne disparaît mystérieusement.",
+      "couverture": "https://covers.openlibrary.org/b/id/8236832-L.jpg",
+      "aLire": false
+    },
+    {
+      "id": 6,
+      "titre": "Dune",
+      "auteur": "Frank Herbert",
+      "genre": "Science-fiction",
+      "description": "Sur la planète Arrakis, Paul Atreides découvre son destin.",
+      "couverture": "https://covers.openlibrary.org/b/id/12801025-L.jpg",
+      "aLire": false
+    }
+  ]
+}
