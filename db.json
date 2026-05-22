@@ -7,7 +7,7 @@
       "genre": "Fantasy",
       "description": "Bilbo Baggins est entraîné dans une aventure extraordinaire.",
       "couverture": "https://covers.openlibrary.org/b/id/8406786-L.jpg",
-      "aLire": false
+      "aLire": true
     },
     {
       "id": "3",
