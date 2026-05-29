@@ -248,16 +248,29 @@ btnAdmin.addEventListener("click", function (e) {
 });
 
 function renderPages() {
+  // 1. Kankhbiw ga3 l-pages b l-marra
   pageAccueil.classList.add("hidden");
   pageALire.classList.add("hidden");
   pageAdmin.classList.add("hidden");
 
+  // 2. Kankhbiw l-input dyal l-baht bach mtab9ach tban f l-pages l-khrin
+  searchInput.classList.add("hidden");
+
+  // 3. Kanbyno ghir l-page li hna fiha w nbyno l-input ghir f l-Accueil
   if (currentPage === "Accueil") {
     pageAccueil.classList.remove("hidden");
+    searchInput.classList.remove("hidden"); // <--- Ghadi tban ghir f l-Accueil hna!
   } else if (currentPage === "ALire") {
     pageALire.classList.remove("hidden");
+    
+    // (Ikhtiyari) Kankhwiw l-baht w nraj3o l-kotob kamlin fach l-oestat ybdl l-page
+    searchInput.value = ""; 
+    showBooks(books);
   } else if (currentPage === "Admin") {
     pageAdmin.classList.remove("hidden");
+    
+    searchInput.value = ""; 
+    showBooks(books);
   }
   
   localStorage.setItem("activePage", currentPage);

@@ -107,6 +107,15 @@
       "description": "Une histoire touchante entre deux adolescents malades.",
       "couverture": "images/faultstars.jpg",
       "aLire": true
+    },
+    {
+      "titre": "ad",
+      "auteur": "dad",
+      "genre": "ggg",
+      "couverture": "https://covers.openlibrary.org/b/id/8406786-L.jpg",
+      "description": "asd",
+      "aLire": false,
+      "id": "lt57wUaSmtk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
