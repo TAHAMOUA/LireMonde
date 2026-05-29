@@ -34,7 +34,9 @@ nav {
   font-size: 14px;
 }
 
-
+.links  :hover{
+  color: black;
+}
 
 nav input {
   padding: 6px 10px;
