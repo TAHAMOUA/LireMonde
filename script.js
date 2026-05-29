@@ -2,6 +2,7 @@ const api = "http://localhost:3000/books";
 
 let books = [];
 let editId = null;
+let currentPage = localStorage.getItem("activePage") || "Accueil";
 
 const booksDiv = document.getElementById("books");
 const filtersDiv = document.getElementById("filters");
@@ -43,6 +44,7 @@ async function getBooks() {
     showFilters();
     showALire();
     showAdmin();
+    renderPages();
   } catch (error) {
     console.log("Erreur :", error);
   }
@@ -84,6 +86,7 @@ function showFilters() {
 
   for (let i = 0; i < genres.length; i++) {
     let btn = document.createElement("button");
+    btn.type = "button";
     btn.textContent = genres[i];
 
     btn.addEventListener("click", function () {
@@ -93,7 +96,6 @@ function showFilters() {
         let result = books.filter(function (book) {
           return book.genre === genres[i];
         });
-
         showBooks(result);
       }
     });
@@ -112,7 +114,7 @@ searchInput.addEventListener("input", function () {
 
   let result = books.filter(function (book) {
     let title = book.titre.toLowerCase().trim();
-    return title.startsWith(value);
+    return title.includes(value);
   });
 
   showBooks(result);
@@ -133,7 +135,7 @@ function openModal(book) {
         "<p>" + book.auteur + "</p>" +
         "<p>" + book.genre + "</p>" +
         "<p>" + book.description + "</p>" +
-        "<button id='toggleBtn'>" + textButton + "</button>" +
+        "<button id='toggleBtn' type ='button'>" + textButton + "</button>" +
       "</div>" +
     "</div>";
 
@@ -184,7 +186,7 @@ function showALire() {
       "<img src='" + book.couverture + "' alt=''>" +
       "<h3>" + book.titre + "</h3>" +
       "<p>" + book.auteur + "</p>" +
-      "<button class='removeBtn'>Retirer</button>";
+      "<button class='removeBtn' type ='button'>Retirer</button>";
 
     card.querySelector(".removeBtn").addEventListener("click", function () {
       toggleLire(book);
@@ -208,8 +210,8 @@ function showAdmin() {
       "<td>" + book.auteur + "</td>" +
       "<td>" + book.genre + "</td>" +
       "<td>" +
-      "<button class='editBtn'>Modifier</button> " +
-      "<button class='deleteBtn'>Supprimer</button>" +
+      "<button class='editBtn' type ='button'>Modifier</button> " +
+      "<button class='deleteBtn' type ='button'>Supprimer</button>" +
       "</td>";
 
     let editBtn = tr.querySelector(".editBtn");
@@ -229,24 +231,37 @@ function showAdmin() {
 
 btnAccueil.addEventListener("click", function (e) {
   e.preventDefault();
-  pageAccueil.classList.remove("hidden");
-  pageALire.classList.add("hidden");
-  pageAdmin.classList.add("hidden");
+  currentPage = "Accueil"; 
+  renderPages();
 });
 
 btnALire.addEventListener("click", function (e) {
   e.preventDefault();
-  pageAccueil.classList.add("hidden");
-  pageALire.classList.remove("hidden");
-  pageAdmin.classList.add("hidden");
+  currentPage = "ALire"; 
+  renderPages();
 });
 
 btnAdmin.addEventListener("click", function (e) {
   e.preventDefault();
+  currentPage = "Admin"; 
+  renderPages();
+});
+
+function renderPages() {
   pageAccueil.classList.add("hidden");
   pageALire.classList.add("hidden");
-  pageAdmin.classList.remove("hidden");
-});
+  pageAdmin.classList.add("hidden");
+
+  if (currentPage === "Accueil") {
+    pageAccueil.classList.remove("hidden");
+  } else if (currentPage === "ALire") {
+    pageALire.classList.remove("hidden");
+  } else if (currentPage === "Admin") {
+    pageAdmin.classList.remove("hidden");
+  }
+  
+  localStorage.setItem("activePage", currentPage);
+}
 
 addBookBtn.addEventListener("click", function () {
   editId = null;
@@ -255,8 +270,9 @@ addBookBtn.addEventListener("click", function () {
 });
 
 closeFormBtn.addEventListener("click", function(){
-    formModal.classList.add("hidden")
+    formModal.classList.add("hidden");
 });
+
 bookForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -297,7 +313,7 @@ bookForm.addEventListener("submit", async function (e) {
 });
 
 function openForm(book){
-    editId =book.id;
+    editId = book.id;
     titre.value = book.titre;
     auteur.value = book.auteur;
     genre.value = book.genre;
@@ -306,15 +322,18 @@ function openForm(book){
 
     formModal.classList.remove("hidden");
 }
-async function deleteBook(id) {
-  try {
-    await fetch(api + "/" + id, {
-      method: "DELETE"
-    });
 
-    getBooks();
-  } catch (error) {
-    console.log("Erreur :", error);
+async function deleteBook(id) {
+  let confirmation = confirm("Voulez-vous vraiment supprimer ce livre ?");
+  if (confirmation === true) {
+    try {
+      await fetch(api + "/" + id, {
+        method: "DELETE"
+      });
+      getBooks(); 
+    } catch (error) {
+      console.log("Erreur :", error);
+    }
   }
 }
 

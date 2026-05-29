@@ -39,7 +39,7 @@
   <section id="pageAdmin" class="hidden">
     <main>
       <h1>Tableau Admin</h1>
-      <button id="addBookBtn">Ajouter un livre</button>
+      <button id="addBookBtn" type="button">Ajouter un livre</button>
 
       <table>
         <thead>
@@ -58,14 +58,14 @@
 
   <div id="modal" class="hidden">
     <div class="modal-box">
-      <button id="closeModal">X</button>
+      <button id="closeModal" type="button">X</button>
       <div id="modalContent"></div>
     </div>
   </div>
 
   <div id="formModal" class="hidden">
     <div class="modal-box">
-      <button id="closeForm">X</button>
+      <button id="closeForm" type="button" >X</button>
 
       <h2>Ajouter / Modifier</h2>
 
@@ -73,7 +73,7 @@
         <input type="text" id="titre" placeholder="Titre" required />
         <input type="text" id="auteur" placeholder="Auteur" required />
         <input type="text" id="genre" placeholder="Genre" required />
-        <input type="text" id="couverture" placeholder="URL image" required />
+        <input type="url" id="couverture" placeholder="URL image" required />
         <textarea id="description" placeholder="Description"></textarea>
         <button type="submit">Enregistrer</button>
       </form>

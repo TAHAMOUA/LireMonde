@@ -10,9 +10,10 @@ body {
 }
 
 nav {
-  background: #1e2a6e;
+  background: #211B6C;
   padding: 12px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
@@ -34,10 +35,11 @@ nav {
 }
 
 nav input {
-  margin-left: auto;
+  margin-right: 20px;
   padding: 6px 10px;
   border: none;
   border-radius: 20px;
+  text-align: center;
 }
 
 main {
@@ -123,6 +125,9 @@ h1 {
   margin: 50px auto;
   padding: 20px;
   position: relative;
+
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 #closeModal,
@@ -136,32 +141,48 @@ h1 {
   cursor: pointer;
 }
 
+#closeForm:hover,
+#closeModal:hover {
+  color: #d9534f;
+}
+
+
+
 .modal-content-flex {
   display: flex;
   gap: 20px;
+}
+
+.modal-content-flex > div:last-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-content-flex > div:last-child p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.modal-content-flex > div:last-child button {
+  margin-top: auto;
+  align-self: flex-start;
+
+  padding: 10px 14px;
+  border: none;
+  background: #4b5fd1;
+  color: white;
+  cursor: pointer;
 }
 
 .modal-image {
   width: 220px;
   height: 300px;
   object-fit: cover;
-}
-
-.modal-info h2 {
-  margin-bottom: 10px;
-}
-
-.modal-info p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.modal-info button {
-  padding: 10px 14px;
-  border: none;
-  background: #4b5fd1;
-  color: white;
-  cursor: pointer;
 }
 
 #addBookBtn {
